@@ -1,0 +1,172 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+			<link rel="stylesheet" href="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+			<link rel="stylesheet" href="/admin/vendors/easymde/easymde.min.css">
+
+			<div class="page-content">
+
+
+				<form method="POST" id="populerurunguncelle"  class="forms-sample" > 
+					<div class="mb-3">
+						<label class="form-label">Popüler Ürün Olsun Mu ?</label>
+						<select name="populerurun" id="populerurun" class="js-example-basic-single form-select" data-width="100%">
+							<option value="true" >Aktif</option>
+							<option value="false" >Pasif</option>
+						</select>
+						</div>
+					</form>
+
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Açık Arttırmalar</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Açık Arttırma Bilgileri</li>
+					</ol>
+				</nav>
+			
+				<div class="row">
+					<div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Açık Arttırma</h6>
+                <div class="table-responsive">
+                  <table id="dataTableExample" class="table">
+                    <thead>
+                      <tr>
+                        <th>Görsel</th>
+                        <th>Ürün Adı</th>
+                        <th>Başlangıç Tarihi</th>
+                        <th>Bitiş Tarihi</th>
+                        <th>Kalan Süre</th>
+                        <th>Düzenle</th>
+						<th>Sil</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+						
+					
+							<% urunler.forEach(element => { %>
+								
+							
+					
+                      <tr>
+                        <td><img height="120px" width="120px" src="/urungorselleri/<%- element.urungorsel1  %>" alt="" ></td>
+                        <td><a href="/urunler/<%- element.ihaleurl  %>"><%- element.urunadi  %></a></td>
+                        <td><%- element.ihalebaslangictarihi.toLocaleString('tr-TR')  %></td>
+						<td><%- element.ihalebitistarihi.toLocaleString('tr-TR') %></td>
+						<td id="geriSayim<%- element.id %>"></td>
+						
+							<script>
+								// Geri sayım fonksiyonu
+								function geriSayim(elementId, bitisTarihi) {
+								var geriSayimElemani = document.getElementById(elementId);
+							
+								// Geri sayım işlemi
+								var geriSayim = setInterval(function() {
+									var simdikiZaman = new Date().getTime();
+									var kalanSure = bitisTarihi - simdikiZaman;
+							
+									if (kalanSure < 0) {
+									clearInterval(geriSayim);
+									geriSayimElemani.innerHTML = 'İhale süresi sona erdi.';
+									} else {
+									var gun = Math.floor(kalanSure / (1000 * 60 * 60 * 24));
+									var saat = Math.floor((kalanSure % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+									var dakika = Math.floor((kalanSure % (1000 * 60 * 60)) / (1000 * 60));
+									var saniye = Math.floor((kalanSure % (1000 * 60)) / 1000);
+							
+									var kalanSureMetin = 'Kalan süre: ';
+									if (gun > 0) {
+										kalanSureMetin += gun + ' gün ';
+									}
+									if (saat > 0) {
+										kalanSureMetin += saat + ' saat ';
+									}
+									if (dakika > 0) {
+										kalanSureMetin += dakika + ' dakika ';
+									}
+									if (saniye > 0) {
+										kalanSureMetin += saniye + ' saniye ';
+									}
+							
+									geriSayimElemani.innerHTML = kalanSureMetin;
+									}
+								}, 1000);
+								}
+							
+								// Geri sayımı başlat
+								geriSayim('geriSayim<%- element.id %>', new Date('<%- element.ihalebitistarihi %>'));
+							</script>
+						<th>
+							<a href="/nadminpanel/urun_duzenle?id=<%- element.id  %>" class="btn btn-primary" >Düzenle</a>
+							</th>
+							</form>
+					
+			
+			</th>
+  			<th> <button  class="btn btn-danger" onclick="sil('<%- element._id %>')">Sil</button>
+									</tr>		
+									<% });  %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+					</div>
+				</div>
+
+			</div>
+
+				<div class="row">
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+	<script src="/admin/js/data-table.js"></script>
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/datatables.net/jquery.dataTables.js"></script>
+	<script src="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+	  <!-- End plugin js for this page -->
+  
+	  
+	  <!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<script src="/admin/vendors/easymde/easymde.min.js"></script>
+	<script src="/admin/js/easymde.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<%- include('../partials/_headers'); %>
+<link rel="stylesheet" href="/home/css/css/bootstrap.min.css">
+<link rel="stylesheet" href="/home/css/css/jquery-ui.css">
+<link rel="stylesheet" href="/home/css/css/slick.css">
+<link rel="stylesheet" href="/home/css/css/main.css">
+         <!-- slide-bar start -->
+         <aside class="slide-bar">
+            <div class="close-mobile-menu">
+            </div>
+
+            <!-- sidebar-info start -->
+            
+            <!-- sidebar-info end -->
+
+            <!-- side-mobile-menu start -->
+          
+            <!-- side-mobile-menu end -->
+        </aside>
+       
+        <!-- slide-bar end -->
+
+        <main>
+
+            <!-- hero start -->
+            <div class="hero hero__height ul_li" data-background="assets/img/bg/hero_bg.jpg">
+                <div class="container">
+                    <div class="row align-items-center mt-none-30">
+                        <div class="col-lg-9 mt-30">
+                            <div class="row align-items-center flex-row-reverse mt-none-30">
+                                <div class="col-lg-7 mt-30">
+                                    <div class="hero__product">
+                                        <div class="hero__product-wrap">
+                                            <div class="hero__product-carousel">
+                                                <% slider.forEach(element => { %>
+                                                    
+                                             
+                                                <div class="hero__product-item">
+                                                    <img src="/slider/<%- element.slidegorsel  %>" alt="">
+                                                </div>
+                                                
+                                            <% }); %>
+                                            </div>
+                                            <div class="hero__product-carousel-nav">
+                                                <% slider.forEach(element => { %>
+                                                    
+                                              
+                                                <div class="hero__product-item-nav">
+                                                    <div class="image">
+                                                        <img src="/slider/<%- element.slidegorsel  %>" alt="">
+                                                    </div>
+                                                </div>
+                                            <% }); %>
+                                            </div>
+                                          
+                                        </div>
+                                    </div>
+                                </div>
+                                <% slider.slice(0, 1).forEach(element => { %>
+                                    
+                              
+                                <div class="col-lg-5 mt-30">
+                                    <div class="hero__content">
+                                        <span class="subtitle">Sıcak İhale</span>
+                                        <h2 class="title"><%- element.slideadi  %><br></h2>
+                                        <p><%- element.slidealtadi  %></p>
+                                        <h3 class="price"> <%- element.slideurunbaslangicfiyati  %> TL / <span><del><%- element.slideindirimlifiyati  %> TL</del></span></h3>
+                                        <div class="mxw_343 mb-20">
+                                            <div class="product__progress progress h-16 color-primary">
+                                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            
+                                        </div>
+                                        <a class="hero__btn" href="<%- element.slideurunlinki  %>">İhaleye Katıl <i class="far fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>  <% }); %>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mt-30">
+                            <div class="hot-deal__slide-wrap style-2 bg-white ">
+                                <h2 class="section-heading mb-25"><span>Popüler İhaleler</span></h2>
+                                <div class="hot-deal__slide tx-arrow">
+                                    <% urunler.forEach(element => { %>
+                                        
+                                  
+                                    <div class="hot-deal__item text-center">
+                                        <div class="thumb">
+                                            <a href="/urunler/<%- element.ihaleurl  %>">
+                                                <img src="/urungorselleri/<%- element.urungorsel1  %>" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <ul class="rating-star ul_li_center mr-10">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="far fa-star"></i></li>
+                                                <li><i class="far fa-star"></i></li>
+                                            </ul>
+                                            <h2 class="title mb-15"><a href="/urunler/<%- element.ihaleurl  %>"><%- element.urunadi  %></a></h2>
+                                            <h4 class="product__price mb-20"><span class="Yeni"><%-  element.urunfiyati  %> TL</span><span class="old"><%- element.urunfiyati  %> TL</span></h4>
+                                            <div class="mxw_216 m-auto">
+                                                <div class="product__progress progress mb-6 h-8 color-primary">
+                                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% });  %>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hero end -->
+            
+            <!-- feature start -->
+            <div class="feature pt-40 pb-30">
+                <div class="container">
+                    <div class="feature__wrap ul_li">
+                        <div class="feature__item ul_li">
+                            <div class="icon">
+                                <img src="/home/img/img/icon/feat_01.svg" alt="">
+                            </div>
+                           
+                                
+                          
+                            <div class="content">
+                                <h3><%- anasayfa.ozellik1  %></h3>
+                                <p><%- anasayfa.altozellik1  %></p>
+                            </div>
+                        </div>
+                        <div class="feature__item ul_li">
+                            <div class="icon">
+                                <img src="/home/img/img/icon/feat_02.svg" alt="">
+                            </div>
+                        
+                            <div class="content">
+                                <h3><%- anasayfa.ozellik2  %></h3>
+                                <p><%- anasayfa.altozellik2  %></p>
+                            </div>
+                        </div>
+                        <div class="feature__item ul_li">
+                            <div class="icon">
+                                <img src="/home/img/img/icon/feat_03.svg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3><%- anasayfa.ozellik3  %></h3>
+                                <p><%- anasayfa.altozellik3  %></p>
+                            </div>
+                        </div>
+                        <div class="feature__item ul_li">
+                            <div class="icon">
+                                <img src="/home/img/img/icon/feat_04.svg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3><%- anasayfa.ozellik4  %></h3>
+                                <p><%- anasayfa.altozellik4  %></p>
+                            </div>
+                        </div>
+                        <div class="feature__item ul_li">
+                            <div class="icon">
+                                <img src="/home/img/img/icon/feat_05.svg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3><%- anasayfa.ozellik5  %></h3>
+                                <p><%- anasayfa.altozellik5  %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- feature end -->
+
+            <!-- tab product start -->
+            
+
+            <!-- rd slide product start -->
+            <div class="rd-slide-product">
+                <div class="container">
+                    <div class="row mt-none-30">
+                        <div class="col-lg-3 mt-30">
+                            <div class="product-category" data-background="/home/img/img/bg/cat_bg.jpg">
+                                <h2 class="section-heading mb-25"><span><span>Kategoriler</span></span></h2>
+                                <ul class="list-unstyled">
+                                    <% kategoriler.forEach(element => { %>
+                                        
+                                 
+                                    <li class="cat-item-has-children"><a href="/kategoriler/<%- element.kategoriurl  %>"><img src="/home/img/img/icon/cat_01.svg" alt=""><%- element.kategoriadi  %></a></li>
+                                <% }); %>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                      
+
+                        <script>
+                            window.addEventListener('load', function() {
+                                var productItems = document.querySelectorAll('.product__item');
+                                var maxHeight = 0;
+                    
+                                productItems.forEach(function(item) {
+                                    if (item.offsetHeight > maxHeight) {
+                                        maxHeight = item.offsetHeight;
+                                    }
+                                });
+                    
+                                productItems.forEach(function(item) {
+                                    item.style.height = maxHeight + 'px';
+                                });
+                            });
+                        </script>
+                        <div class="col-lg-9 mt-30">
+                            <div class="rd-slide-products">
+                                <h2 class="section-heading mb-25"><span>Son Eklenenler</span></h2>
+                                <div class="rd-product__slide tx-arrow">
+                                    <% for (let i = 0; i < urunler.length; i += 4) { %>
+                                      
+                                    <div class="rd-product__slide-item">
+                                        <% for (let j = i; j < i + 4 && j < urunler.length; j++) { %>
+                                        <div class="product__item">
+                                            <div class="product__img text-center pos-rel">
+                                                <a href="/urunler/<%- urunler[j].ihaleurl  %>"><img src="/urungorselleri/<%- urunler[j].urungorsel1  %>" alt="" height="120px" width="120px"></a>
+                                            </div>
+                                            <div class="product__content">
+                                                <div class="product__review ul_li_center">
+                                                 
+                                                    <ul class="rating-star ul_li mr-10">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="far fa-star"></i></li>
+                                                        <li><i class="far fa-star"></i></li>
+                                                    </ul>
+                                                    <span>(126) Değerlendirme</span>
+                                                </div>
+                                                <h2 class="product__title"><a href="/urunler/<%- urunler[j].ihaleurl  %>"><%- urunler[j].urunadi %></a></h2>
+                                                <h4 class="product__price"><span class="Yeni"><%- urunler[j].baslangicfiyati %> TL</span><span class="old"><%- urunler[j].urunfiyati %> TL </span></h4>
+                                            </div>
+                                            <ul class="product__action">
+                                                <li><a href="#!"><i class="far fa-compress-alt"></i></a></li>
+                                                <li><a href="#!"><i class="far fa-shopping-basket"></i></a></li>
+                                                <li><a href="#!"><i class="far fa-heart"></i></a></li>
+                                            </ul>
+                                            <span class="badge-skew">Yeni</span>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- rd slide product end -->
+
+
+
+
+            <!-- rd tab product start -->
+            <!-- rd tab product end -->
+
+            <!-- add start -->
+           
+            <!-- add end -->
+
+            <!-- featured product start -->
+            
+            <!-- featured product end -->
+
+            <!-- product category start -->
+       
+            <!-- product category end -->
+
+            <!-- recent product start -->
+            
+            <!-- recent product end -->
+
+            <!-- banner start -->
+           
+            <!-- banner end -->
+
+          
+            <!-- brand start -->
+            <div class="brand pt-80 pb-80">
+                <div class="container">
+                    <div class="brand__active">
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_01.png" alt="">
+                            </a>
+                        </div>
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_02.png" alt="">
+                            </a>
+                        </div>
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_03.png" alt="">
+                            </a>
+                        </div>
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_04.png" alt="">
+                            </a>
+                        </div>
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_05.png" alt="">
+                            </a>
+                        </div>
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_06.png" alt="">
+                            </a>
+                        </div>
+                        <div class="brand__item">
+                            <a href="#!">
+                                <img src="/home/img/img/brand/img_03.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- brand end -->
+
+
+<%- include('../partials/_footers');  %>
+
+    <!-- jquery include -->
+    <script src="/home/js/js/jquery-3.5.1.min.js"></script>
+    <script src="/home/js/js/bootstrap.bundle.min.js"></script>
+    <script src="/home/js/js/slick.js"></script>
+    <script src="/home/js/js/backToTop.js"></script>
+    <script src="/home/js/js/uikit.min.js"></script>
+    <script src="/home/js/js/resize-sensor.min.js"></script>
+    <script src="/home/js/js/theia-sticky-sidebar.min.js"></script>
+    <script src="/home/js/js/wow.min.js"></script>
+    <script src="/home/js/js/jqueryui.js"></script>
+    <script src="/home/js/js/touchspin.js"></script>
+    <script src="/home/js/js/countdown.js"></script>
+    <script src="/home/js/js/jquery.magnific-popup.min.js"></script>
+    <script src="/home/js/js/metisMenu.min.js"></script>
+    <script src="/home/js/js/main.js"></script>
+</body>

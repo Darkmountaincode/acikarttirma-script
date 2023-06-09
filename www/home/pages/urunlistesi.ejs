@@ -1,0 +1,521 @@
+<%- include('../partials/_headers');  %>
+  
+
+    <!-- offcanvas area start -->
+    <div class="offcanvas__area">
+        <div class="offcanvas__wrapper">
+        <div class="offcanvas__close">
+            <button class="offcanvas__close-btn" id="offcanvas__close-btn">
+                <i class="fal fa-times"></i>
+            </button>
+        </div>
+        <div class="offcanvas__content">
+            <div class="offcanvas__logo mb-40">
+                <a href="index.html">
+                <img src="/home/img/logo/logo-white.png" alt="logo">
+                </a>
+            </div>
+            <div class="offcanvas__search mb-25">
+                <form action="#">
+                    <input type="text" placeholder="What are you searching for?">
+                    <button type="submit" ><i class="far fa-search"></i></button>
+                </form>
+            </div>
+            <div class="mobile-menu fix"></div>
+            <div class="offcanvas__action">
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- offcanvas area end -->      
+    <div class="body-overlay"></div>
+    <!-- offcanvas area end -->
+
+    <main>
+        <!-- breadcrumb__area-start -->
+        <section class="breadcrumb__area box-plr-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-12">
+                        <div class="breadcrumb__wrapper">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Ürünler</li>
+                                </ol>
+                              </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- breadcrumb__area-end -->
+
+        <!-- product-details-start -->
+        <div class="product-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="product__details-nav d-sm-flex align-items-start">
+                            <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="thumbOne-tab" data-bs-toggle="tab" data-bs-target="#thumbOne" type="button" role="tab" aria-controls="thumbOne" aria-selected="true">
+                                     <% if(urunler.urungorsel1) {%>
+                                      <img src="/urungorselleri/<%- urunler.urungorsel1  %>" alt="" height="20px" width="20px">
+                                     <% } %>
+                                  </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="thumbTwo-tab" data-bs-toggle="tab" data-bs-target="#thumbTwo" type="button" role="tab" aria-controls="thumbTwo" aria-selected="false">
+                                    <% if(urunler.urungorsel2) {%>
+
+                                    <img src="/urungorselleri/<%- urunler.urungorsel2  %>" alt="" height="20px" width="20px">
+                                    <% } %>
+                                </button>
+                                </li> <% if(urunler.urungorsel3) {%>
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link" id="thumbThree-tab" data-bs-toggle="tab" data-bs-target="#thumbThree" type="button" role="tab" aria-controls="thumbThree" aria-selected="false">
+                                   
+
+                                    <img src="/urungorselleri/<%- urunler.urungorsel3  %>" alt="" height="20px" width="20px">
+                                    
+                                </button>
+                                </li><% } %>
+                            </ul>
+                            <div class="product__details-thumb">
+                                <div class="tab-content" id="productThumbContent">
+                                    <div class="tab-pane fade show active" id="thumbOne" role="tabpanel" aria-labelledby="thumbOne-tab">
+                                        <% if(urunler.urungorsel1) {%>
+                                        <div class="product__details-nav-thumb w-img">
+                                          
+
+                                            <img src="/urungorselleri/<%= urunler.urungorsel1  %>" alt="">
+                                          
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                    <div class="tab-pane fade" id="thumbTwo" role="tabpanel" aria-labelledby="thumbTwo-tab">
+                                        <div class="product__details-nav-thumb w-img">
+                                            <img src="/urungorselleri/<%- urunler.urungorsel2  %>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="thumbThree" role="tabpanel" aria-labelledby="thumbThree-tab">
+                                        <div class="product__details-nav-thumb w-img">
+                                            <img src="/urungorselleri/<%- urunler.urungorsel3  %>" alt="">
+                                        </div>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-6">
+                        <div class="product__details-content">
+                            <h6 class="urunler-urun-adi"><%- urunler.urunadi  %></h6>
+                            
+                                <div class="review-rate">
+                                    <% let toplamurunpuan = 0; %>
+                                    <% yorumlar.forEach(element => { %>
+                                        <% toplamurunpuan += element.degerlendirme; %>
+                                    <% }); %>
+                                    <% let ortalamaPuann = yorumlar.length > 0 ? toplamurunpuan / yorumlar.length : 0; %>
+                                    <h5><%- ortalamaPuann.toFixed(2) %></h5>&nbsp;&nbsp;
+                                    <div class="str-info">
+                                        <div class="review-star mr-15">
+                                            <% for (let i = 1; i <= 5; i++) { %>
+                                                <% if (i <= ortalamaPuann) { %>
+                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                <% } else { %>
+                                                    <a href="#"><i class="fas fa-star" style="color: black;"></i></a>
+                                                <% } %>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                        
+                            <div class="price mb-10">
+                                <span>Başlangıç Fiyatı : <%- urunler.baslangicfiyati %> TL</span>
+                            </div>
+                              <h2></h2>
+                              <time class="countdown" date-time="<%= urunler.ihalebitistarihi  %>" style="--accent: gray"></time>
+             
+                       
+
+
+                            <% if(urunler.ihaledurumu===true) {%>
+                            <div class="cart-option mb-15">
+                                <div class="product-quantity mr-20">
+                                    <form id="teklifim" method="POST">
+                                        <input type="number" name="teklifmiktari" id="teklifmiktari" class="cart-btn2" placeholder="0 TL">
+                                        <input type="hidden" name="urunId" id="urunId" value="<%- urunler._id  %>">
+                                        <button type="submit" class="cart-btn">Teklif Ver</button>
+                                      </form>
+                                      </div>
+                                </div>
+                              
+                            </div>
+                            <div class="features-des mb-20 mt-10">
+                                <ul> 
+                                     <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Teklif Veren</th>
+                                        <th scope="col">Teklif</th>
+                                      </tr>
+
+                                 
+                                        <% teklifler.forEach(element => { %>
+                                            <tr>
+                                              <th scope="row">
+                                                <% 
+                                                  const ad = element.uyeId.uyeadi;
+                                                  const soyad = element.uyeId.uyesoyad;
+                                                  const kisaltilmisAd = ad.charAt(0) + Array(ad.length - 1).fill('*').join('');
+                                                  const kisaltilmisSoyad = soyad.charAt(0) + Array(soyad.length - 1).fill('*').join('');
+                                                  const tamAd = kisaltilmisAd + " " + kisaltilmisSoyad;
+                                                  %>
+                                                <%- tamAd %>
+                                              </th>
+                                              <td><%- element.teklif %> TL</td>
+                                            </tr>                                    
+                                          <% }); %>
+                            </tbody>
+                        </table>
+                                </ul>
+                            </div><% }else {%>
+                                <div class="features-des mb-20 mt-10">
+                                    <p>Bu ihale sonlanmıştır. Kazanan kişi: 
+                                        <% if (kazananUyeAdi) { %>
+                                            <% let ad = kazananUyeAdi.split(' ')[0]; %>
+                                            <% let soyad = kazananUyeAdi.split(' ')[1]; %>
+                                            <b><%= ad.charAt(0).toUpperCase() + '*'.repeat(ad.length - 1) + ' ' + soyad.charAt(0).toUpperCase() + '*'.repeat(soyad.length - 1) %></b>
+                                          <% } else { %>
+                                            Kazanan kullanıcı bulunamadı.
+                                          <% } %>
+                                          </p>
+                                   
+                                    </p>
+                                  </div>
+
+                                <% } %>
+                            <div class="details-meta">
+                                <div class="d-meta-left">
+                                    <div class="dm-item mr-20">
+                                        <a href="#"><i class="fal fa-heart"></i>Listene Ekle</a>
+                                    </div>
+                                    <div class="dm-item">
+                                        <a href="#"><i class="fal fa-layer-group"></i>Karşılaştır</a>
+                                    </div>
+                                </div>
+                                <div class="d-meta-left">
+                                    <div class="dm-item">
+                                        <a href="#"><i class="fal fa-share-alt"></i>Paylaş</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-tag-area mt-15">
+                                <div class="product_info">
+                                    <span class="sku_wrapper">
+                                        <span class="title">Ürün Kodu:</span>
+                                        <span class="sku"><%- urunler.urunkodu  %></span>
+                                    </span>
+                                    <span class="posted_in">
+                                        <span class="title">Kategoriler:</span>
+                                        <a href="#">Ev Ve Yaşam</a>
+                                        <a href="#">Airfry</a>
+                                    </span>
+                                    <span class="tagged_as">
+                                        <span class="title">Etiketler:</span>
+                                        
+                                        <a href="#"><%- urunler.urunetiketleri  %></a>
+                                        <a href="#"></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product-details-end -->
+
+        <!-- product-details-des-start -->
+        <div class="product-details-des mt-40 mb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="product__details-des-tab">
+                            <ul class="nav nav-tabs" id="productDesTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                  <button class="nav-link active" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review "  aria-selected="false">Ayrıntılar </button>
+                                  <p class="des-text mb-35"><%- urunler.urunaciklamasi  %>.</p>
+                                </li>
+                              </ul>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h4>Ürün Değerlendirme</h4>
+                <br>
+
+                <div class="tab-content" id="prodductDesTaContent">
+                    <div class="tab-pane fade active show" id="des" role="tabpanel" aria-labelledby="des-tab">
+                        <div class="product__details-des-wrapper">
+                    <div class="tab-pane fade active show" id="review" role="tabpanel" aria-labelledby="review-tab">
+                            <div class="row">
+                                
+                                   
+                                        <div class="review-rate">
+                                            <% let toplamPuan = 0; %>
+                                            <% yorumlar.forEach(element => { %>
+                                                <% toplamPuan += element.degerlendirme; %>
+                                            <% }); %>
+                                            <% let ortalamaPuan = yorumlar.length > 0 ? toplamPuan / yorumlar.length : 0; %>
+                                            <h5><%- ortalamaPuan.toFixed(2) %></h5>&nbsp;&nbsp;
+                                            <div class="str-info">
+                                                <div class="review-star mr-15">
+                                                    <% for (let i = 1; i <= 5; i++) { %>
+                                                        <% if (i <= ortalamaPuan) { %>
+                                                            <a href="#"><i class="fas fa-star"></i></a>
+                                                        <% } else { %>
+                                                            <a href="#"><i class="fas fa-star" style="color: black;"></i></a>
+                                                        <% } %>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <hr>
+                                <% yorumlar.forEach(element => { %>
+                                    <div class="col-xl-4">
+                                        <div class="review-rate">
+                                            <div class="str-info">
+                                                <div class="review-star mr-15">
+                                                    <% for (let i = 1; i <= 5; i++) { %>
+                                                        <% if (i <= element.degerlendirme) { %>
+                                                            <a href="#"><i class="fas fa-star"></i></a>
+                                                        <% } else { %>
+                                                            <a href="#"><i class="fas fa-star" style="color: black;"></i></a>
+                                                        <% } %>
+                                                    <% } %>
+                                                    <span><%- element.uyeyorum %>. </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <br> <br>
+                                    <h6 class="yorumuyazan"> Melis <span>| May 27, 2023</span></h6>
+                                    <hr> 
+                                <% }); %>
+                         
+                                    <form id="yorumekle" method="POST">
+                                        <div class="review-star">
+                                            <div class="comment-rating mb-20">
+                                                <h6 class="degerlendirmeyazisi">Değerlendirmek için yıldıza dokunun.</h6>
+                                                <div class="rating">
+                                                    <label>
+                                                        <input type="radio" name="yildiz" id="yildiz1" value="1" required />
+                                                        <span class="icon">★</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="yildiz" id="yildiz2" value="2" required/>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="yildiz" id="yildiz3" value="3" required />
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>   
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="yildiz" id="yildiz4" value="4" required/>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="yildiz" id="yildiz5" value="5" required/>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                        <span class="icon">★</span>
+                                                    </label>
+                                                </div> 
+
+                            </div>
+                                <div class="col-xl-12">
+                                    <div class="product__details-comment ">
+                                        <div class="comment-title mb-20">
+                                           <h4>Yorum Ekle</h4>
+                                           <p>Email adresiniz paylaşılmayacaktır.</p>
+                                        </div> 
+                                    
+                                        <div class="comment-input-box">
+                                              <div class="row">
+                                                 <div class="col-xxl-12">
+                                                       <textarea placeholder="Yorumunuz" name="yorumbilgisi" id="yorumbilgisi" class="comment-input comment-textarea"></textarea>
+                                                 </div>
+                                                 <input type="hidden" name="urunId" id="urunId" value="<%- urunler.id %>">
+                                                 <div class="col-xxl-12">
+                                                    <div class="comment-agree d-flex align-items-center mb-25">
+                                                       <div class="form-check">
+                                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                          <label class="form-check-label" for="flexCheckDefault">
+                                                            Yorum yapma sırasında adımı, e-posta adresimi bir sonraki sefer için kaydet.
+                                                          </label>
+                                                        </div>
+                                                    </div>
+                                                 </div>
+                                                 <div class="col-xxl-12">
+                                                    <div class="comment-submit">
+                                                       <button type="submit" class="cart-btn">Gönder</button>
+                                                    </div>
+                                                 </div>
+                                                 <br>
+                                                 <br>
+                                                 <br>
+                                              </div>
+                                           </form>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product-details-des-end -->
+
+        <!-- shop modal start -->
+        <div class="modal fade" id="productModalId" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered product__modal" role="document">
+                <div class="modal-content">
+                    <div class="product__modal-wrapper p-relative">
+                        <div class="product__modal-close p-absolute">
+                            <button data-bs-dismiss="modal"><i class="fal fa-times"></i></button>
+                        </div>
+                        <div class="product__modal-inner">
+                            <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="product__modal-box">
+                                    <div class="tab-content" id="modalTabContent">
+                                        <div class="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="/home/img/quick-view/quick-view-1.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="/home/img/quick-view/quick-view-2.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="/home/img/quick-view/quick-view-3.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
+                                            <div class="product__modal-img w-img">
+                                                <img src="/home/img/quick-view/quick-view-4.jpg" alt="">
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <ul class="nav nav-tabs" id="modalTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="true">
+                                                <img src="/home/img/quick-view/quick-nav-1.jpg" alt="">
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
+                                            <img src="/home/img/quick-view/quick-nav-2.jpg" alt="">
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false">
+                                            <img src="/home/img/quick-view/quick-nav-3.jpg" alt="">
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4" aria-selected="false">
+                                            <img src="/home/img/quick-view/quick-nav-4.jpg" alt="">
+                                            </button>
+                                        </li>
+                                        </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="product__modal-content">
+                                    <h4><a href="/"><%- urunler.urunadi  %></a></h4>
+                                    <div class="product__review d-sm-flex">
+                                        <div class="rating rating__shop mb-10 mr-30">
+                                        <ul>
+                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                            <li><a href="#"><i class="fal fa-star"></i></a></li>
+                                        </ul>
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="product__price">
+                                        <span>$109.00 – $307.00</span>
+                                    </div>
+                                    <div class="product__modal-des mt-20 mb-15">
+                                        <ul>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Özellik 1.</a></li>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Özellik 2.</a></li>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Özellik 3.</a></li>
+                                            <li><a href="#"><i class="fas fa-circle"></i> Özellik 4.</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="product__stock mb-20">
+                                        <span class="mr-10">Availability :</span>
+                                        <span>1795 in stock</span>
+                                    </div>
+                                    <div class="product__modal-form">
+                                        <form action="#">
+                                        <div class="pro-quan-area d-lg-flex align-items-center">
+                                            <div class="product-quantity mr-20 mb-25">
+                                            </div>
+                                            <div class="pro-cart-btn mb-25">
+                                                <button class="cart-btn" type="submit">1Teklif Ver</button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    <div class="product__stock mb-30">
+                                        <ul>
+                                            <li><a href="#">
+                                                <span class="sku mr-10">SKU:</span>
+                                                <span>Samsung C49J89: £875, Debenhams Plus</span></a>
+                                            </li>
+                                            <li><a href="#">
+                                                <span class="cat mr-10">Categories:</span>
+                                                <span>iPhone, Tablets</span></a>
+                                            </li>
+                                            <li><a href="#">
+                                                <span class="tag mr-10">Tags:</span>
+                                                <span>Smartphone, Tablets</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- shop modal end -->
+
+    </main>
+
+<%- include('../partials/_footers');  %>

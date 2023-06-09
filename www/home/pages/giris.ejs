@@ -1,0 +1,145 @@
+<%- include('../partials/_headers');  %>
+
+     <!-- header-end -->
+
+    <!-- offcanvas area start -->
+    <div class="offcanvas__area">
+        <div class="offcanvas__wrapper">
+        <div class="offcanvas__close">
+            <button class="offcanvas__close-btn" id="offcanvas__close-btn">
+                <i class="fal fa-times"></i>
+            </button>
+        </div>
+        <div class="offcanvas__content">
+            <div class="offcanvas__logo mb-40">
+                <a href="index.html">
+                <img src="home/img/logo/logo-white.png" alt="logo">
+                </a>
+            </div>
+            <div class="offcanvas__search mb-25">
+                <form action="#">
+                    <input type="text" placeholder="What are you searching for?">
+                    <button type="submit" ><i class="far fa-search"></i></button>
+                </form>
+            </div>
+            <div class="mobile-menu fix"></div>
+            <div class="offcanvas__action">
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- offcanvas area end -->      
+    <div class="body-overlay"></div>
+    <!-- offcanvas area end -->
+
+    <main>
+        <!-- page-banner-area-start -->
+       
+        <!-- page-banner-area-end -->
+
+        <!-- account-area-start -->
+        <div class="account-area mt-70 mb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="basic-login mb-50">
+                            <h5>Giriş Yap</h5>
+                            <form id="uyegiris" method="POST">
+                                <label for="name">Email Adresiniz :<span>*</span></label>
+                                <input id="email" type="text" placeholder="Email Adresinizi Giriniz">
+                                <label for="pass">Şifre <span>*</span></label>
+                                <input id="sifre" type="password" placeholder="Şifreniz...">
+                                <div class="login-action mb-10 fix">
+                                    <span class="log-rem f-left">
+                                       <input id="remember" type="checkbox">
+                                       <label for="remember">Şifre mi hatırla</label>
+                                    </span>
+                                    <span class="forgot-login f-right">
+                                       <a href="#">Şifrenizi Mi Unuttunuz?</a>
+                                    </span>
+                                </div>
+                                <button type="submit" class="tp-in-btn w-100">Giriş Yap</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="basic-login">
+                            <h5>Hesabınız Yok Mu ? Kayıt Ol</h5>
+                            <form id="uyekayit" method="POST">
+                                <label for="username">Adınız<span>*</span></label>
+                                <input id="ad" type="text" name="ad" placeholder="Adınız">
+                                <label for="soyad">Soyadınız<span>*</span></label>
+                                <input id="soyad" type="text" name="soyad" placeholder="Soyadınız">
+                                <label for="email">Email Adresiniz <span>*</span></label>
+                                <input id="emails" type="text" name="emails" placeholder="Email Adresiniz">
+                                <label for="#phone-input">Lütfen Numaranızı Giriniz<span class="required">*</span></label>
+                                <input id="tel" type="tel" value="" name="tel" aria-label="Lütfen Numaranızı Giriniz" placeholder="Örneğin. (xxx)-xxx-xx-xx">
+                                <label for="userpass">Şifreniz<span>*</span></label>
+                                <input id="sifres" type="password" name="sifres" placeholder="Şifrenizi Tekrar Giriniz...">
+                                <label for="userpass">Şifre Tekrar<span>*</span></label>
+                                <input id="resifres" type="password" name="resifres" placeholder="Şifrenizi Tekrar Giriniz...">
+                                <div class="login-action mb-10 fix">
+                                    <p>Kişisel verileriniz, bu web sitesindeki deneyiminizi desteklemek, hesabınıza erişimi yönetmek ve <a href="">gizlilik politikamızda</a> açıklanan diğer amaçlar için kullanılacaktır.</p>
+                                </div>
+                                <button type="submit" class="tp-in-btn w-100">Kayıt Ol</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- account-area-end -->
+
+        <!-- cta-area-start --> 
+        <section class="cta-area d-ldark-bg pt-55 pb-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item cta-item-d mb-30">
+                            <h5 class="cta-title">Follow Us</h5>
+                            <p>We make consolidating, marketing and tracking your social media website easy.</p>
+                            <div class="cta-social">
+                                <div class="social-icon">
+                                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="rss"><i class="fas fa-rss"></i></a>
+                                    <a href="#" class="dribbble"><i class="fab fa-dribbble"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item mb-30">
+                            <h5 class="cta-title">Sign Up To Newsletter</h5>
+                            <p>Join 60.000+ subscribers and get a new discount coupon  on every Saturday.</p>
+                            <div class="subscribe__form">
+                                <form action="#">
+                                    <input type="email" placeholder="Enter your email here...">
+                                    <button>subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="cta-item mb-30">
+                            <h5 class="cta-title">Download App</h5>
+                            <p>DukaMarket App is now available on App Store & Google Play. Get it now.</p>
+                            <div class="cta-apps">
+                                <div class="apps-store">
+                                    <a href="#"><img src="home/img/brand/app_ios.png" alt=""></a>
+                                    <a href="#"><img src="home/img/brand/app_android.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- cta-area-end -->
+
+    </main>
+<%- include('../partials/_footers');  %>

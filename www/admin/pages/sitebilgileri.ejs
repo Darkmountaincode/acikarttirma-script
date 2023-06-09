@@ -1,0 +1,136 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Site</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Site Bilgileri</li>
+					</ol>
+				</nav>
+
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Site İle İlgili Bilgileri Lütfen Buraya Giriniz</h6>
+								<form method="POST" id="sitekaydet"  class="forms-sample" enctype="multipart/form-data"> 
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Başlık:</label>
+											<input class="form-control mb-4 mb-md-0" name="baslik" id="baslik" value="<%- site.site.baslik %>"/>
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">Açıklama</label>
+											<input class="form-control" name="aciklama" id="aciklama" value="<%- site.site.aciklama  %>" />
+										</div>
+									</div>                                           
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Anahtar Kelimeler:</label>
+                                            <input name="anahtar" id="tags" value="<%- site.site.anahtar  %>" />
+										</div>
+									</div>     
+                                	<div class="row mb-3">
+										<div class="col">
+											<img src="/uploads/<%- site.site.logo  %>" alt="" height="120px" width="120px">
+											<label class="form-label">Logo:</label>
+											<input type="file" id="logo" class="form-control mb-4 mb-md-0" name="logo" />
+										</div>
+										<div class="col-md-6">
+										<label class="form-label">Favicon</label>
+											<img src="/uploads/<%- site.site.favicon  %>" alt="" height="120px" width="120px">
+											<input type="file" id="favicon" class="form-control" name="favicon" />
+										</div>
+									</div>           </div>
+									<input type="hidden" name="site_id" value="">
+                                        <button type="submit" class="btn btn-primary">Güncelle</button>
+								</form>
+						</div>
+					</div>
+				</div>
+				
+			
+				</body>
+                          <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title">Site Kontrol Durumları</h6>
+
+									
+									
+
+
+
+
+
+                                            <div class="mb-3">
+                                            <label class="form-label">Üyelik Alımı Açık Olsun Mu ?</label>
+                                            <select name="uyelikdurum" id="uyelikdurum" class="js-example-basic-single form-select" data-width="100%">
+                                                <option value="true" <%= site.uyedurum.status === true ? 'selected' : ''  %>>Aktif</option>
+                                                <option value="false" <%= site.uyedurum.status === false ? 'selected' : ''  %>>Pasif</option>
+                                            </select>
+                                        </div>
+			                             <div class="mb-3">
+                                            <label class="form-label">Site Bakım Modu Açık Olsun Mu ?</label>
+                                            <select name="bakimdurum" id="bakimdurum"  class="js-example-basic-single form-select" data-width="100%">
+                                                <option value="true" <%= site.sitedurum.status === true ? 'selected': ''  %>>Aktif</option>
+                                                <option value="false" <%= site.sitedurum.status === false ? 'selected': ''  %>>Pasif</option>
+                                            </select>
+                                        </div></div>
+                                        <button type="submit" class="btn btn-primary">Güncelle</button>
+
+                                    </form>
+                              
+                            </div>
+                        </div>
+                    </div>
+				<div class="row">
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="/admin/vendors/feather-icons/feather.min.js"></script>
+	<script src="/admin/js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

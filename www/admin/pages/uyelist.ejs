@@ -1,0 +1,201 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+			<link rel="stylesheet" href="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Üyeler</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Üye Bilgileri</li>
+					</ol>
+				</nav>
+			
+				<div class="row">
+					<div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Üye Listesi</h6>
+                <div class="table-responsive">
+                  <table id="dataTableExample" class="table">
+                    <thead>
+                      <tr>
+                        <th>Üye Adı & Soyadı</th>
+                        <th>Üye Email</th>
+                        <th>Üye Bakiye</th>
+                        <th>Düzenle</th>
+						<th>Sil</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+						<% uyeler.forEach(element => { %>
+							
+						
+                      <tr>
+                        <td><%- element.uyeadi  %></td>
+                        <td><%- element.uyemail  %></td>
+                        <td><%- element.uyebakiye  %></td>
+ 						<th>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%- element._id %>">
+								Düzenle
+							  </button>
+							  <div class="modal fade" id="exampleModalCenter<%- element._id %>" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <h5 class="modal-title" id="exampleModalCenterTitle">Üye Düzenle</h5>
+									  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+									</div>
+									<div class="modal-body">
+																   
+			<div class="row">
+				<div class="col-md-12 grid-margin">
+					<div class="card">
+						<div class="card-body">
+							<p class="text-muted mb-3">Üye Düzenle</p>
+
+							<form id="uyelist<%- element._id %>" method="POST" class="forms-sample">
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Üye Adı:</label>
+								  <input class="form-control mb-4 mb-md-0" name="uyeadi" id="uyeadi" value="<%- element.uyeadi  %>" />
+								</div>
+								<div class="col-md-6">
+								  <label class="form-label">Üye Soyadı</label>
+								  <input class="form-control" name="uyesoyadi" id="uyesoyadi" value="<%- element.uyesoyad  %>" placeholder="."  />
+								</div>
+							  </div>
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Üye Email:</label>
+								  <input class="form-control mb-4 mb-md-0" name="uyemail" id="uyemail" value="<%- element.uyemail  %>" />
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Üye Bakiye</label>
+									<input class="form-control mb-4 mb-md-0" name="uyebakiye" id="uyebakiye" value="<%- element.uyebakiye  %>"  />
+
+								</div>
+								</div>
+								<div class="row mb-3">
+								  <div class="col">
+									<label class="form-label">Üye Banlı Mı ?</label>
+									<select name="bandurumu" id="bandurumu" class="form-select mb-3">
+										<option value="true" <%- element.bandurumu === true ? 'selected': ''  %>>Aktif </option>
+										<option value="false" <%- element.bandurumu === false ? 'selected': ''  %>>Pasif</option>
+									</select>
+								  </div>
+								<div class="col-md-6">
+								  <label class="form-label">Admin Mi ?</label>
+								  <select name="admin" id="admin" class="form-select mb-3">
+									<option value="true" <%- element.admin === true ? 'selected': ''  %>>Aktif</option>
+									<option value="false" <%- element.admin === false ? 'selected': ''  %>>Pasif</option>
+								</select>
+													</div>
+							  </div>
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Üyelik Tel</label>
+								  <input class="form-control mb-4 mb-md-0" name="uyetel" id="uyetel" value="<%- element.uyetel  %>"  />
+								</div>
+								<div class="col-md-6">
+								  <label class="form-label">Üye Adres</label>
+								  <input class="form-control" name="uyeadres" id="uyeadres" value="" placeholder="."  />
+								</div>
+							  </div>
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Üye İl</label>
+								  <input class="form-control mb-4 mb-md-0"  name="uyeil" id="uyeil" value="" />
+								</div>
+								<div class="col-md-6">
+								  <label class="form-label">Üye İlçe</label>
+								  <input class="form-control" name="uyeilce" id="uyeilce" value="" placeholder="."  />
+								</div>
+							  </div>
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Üyelik Cinsiyet</label>
+								  <select name="uyecinsiyet" id="uyecinsiyet" class="form-select mb-3">
+									<option value="erkek" <%- element.uyecinsiyet === 'erkek' ? 'selected': '' %>>Erkek</option>
+									<option value="kadin" <%- element.uyecinsiyet === 'kadin' ? 'selected': ''  %>>Kadin</option>
+								</select>
+								</div>
+								<div class="col-md-6">
+									<label class="form-label">Üyelik Tarihi</label>
+									<input class="form-control mb-4 mb-md-0"  value="<%- element.uyekayittarihi  %>" disabled />
+								</div>
+							  </div>
+							  <input type="hidden" name="uyeId" id="uyeId" value="<%- element._id  %>">
+							
+							  <button type="submit" id="uyeguncelle-<%- element._id %>" class="btn btn-primary">Güncelle</button>
+							</form>
+					</div>
+				</div>
+			</th>
+                        <th><button type="submit" class="btn btn-danger">Sil</button></th>
+									</tr>		<% });  %>
+	
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+					</div>
+				</div>
+
+			</div>
+
+				<div class="row">
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+	<script src="/admin/js/data-table.js"></script>
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/datatables.net/jquery.dataTables.js"></script>
+	<script src="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+	  <!-- End plugin js for this page -->
+  
+	  
+	  <!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

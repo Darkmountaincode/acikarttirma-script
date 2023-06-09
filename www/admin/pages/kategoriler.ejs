@@ -1,0 +1,177 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+			<link rel="stylesheet" href="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Kategoriler</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Kategori Bilgileri</li>
+					</ol>
+				</nav>
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Kategori İle İlgili Bilgileri Lütfen Buraya Giriniz</h6>
+								<form id="kategoriekle" method="POST" class="forms-sample">
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Başlık:</label>
+											<input class="form-control mb-4 mb-md-0" name="kategoriadi" id="kategoriadi" value="" placeholder="Kategori Başlığınız"/>
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">Açıklama</label>
+											<input class="form-control" name="kategoriaciklama" value="" id="kategoriaciklama" placeholder="Kategori Açıklamanız" />
+										</div>
+									</div>                                           
+									<div class="row mb-3">
+										 
+										<div class="col-md-6">
+											<label class="form-label">Kategori URL</label>
+											<input class="form-control" name="kategoriurl" value=""  placeholder="Url Otomatik Oluşturulur"  disabled/>
+										</div>
+									</div>     
+                                </div>
+                                        <button type="submit" class="btn btn-primary">Kaydet</button>
+								</form>
+								
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="row">
+					<div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Kategori Listesi</h6>
+                <div class="table-responsive">
+                  <table id="dataTableExample" class="table">
+                    <thead>
+                      <tr>
+                        <th>Kategori Adı</th>
+                        <th>Kategori Açıklaması</th>
+                        <th>Kategori Url</th>
+                        <th>Düzenle</th>
+						<th>Sil</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+						<% kategoriler.forEach(element => {%>
+                      <tr>
+                        <td><%= element.kategoriadi  %></td>
+                        <td><%= element.kategoriaciklama  %></td>
+                        <td><%= element.kategoriurl  %></td>
+ 						<th>
+							<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%- element._id %>">
+								Düzenle
+							  </button>
+							  <div class="modal fade" id="exampleModalCenter<%- element._id %>" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered">
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <h5 class="modal-title" id="exampleModalCenterTitle">Kategori Düzenle</h5>
+									  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+									</div>
+									<div class="modal-body">
+																   
+			<div class="row">
+				<div class="col-md-12 grid-margin">
+					<div class="card">
+						<div class="card-body">
+							<p class="text-muted mb-3">Kategori Düzenle</p>
+
+							<form action="kategoriguncelle" method="POST" class="forms-sample">
+								<div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Kategori Adı:</label>
+								  <input class="form-control mb-4 mb-md-0" name="kategoriadi" id="kategoriadi" value="<%= element.kategoriadi %>" />
+								</div>
+								
+							  </div>
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">Kategori Açıklama:</label>
+								  <input class="form-control" name="kategoriaciklama" id="kategoriaciklama" value="<%= element.kategoriaciklama %>" placeholder="Minimum Ödeme Tutarı.." />
+								</div>
+								<input type="hidden" name="kategoriId" id="kategoriId" value="<%- element.id  %>">
+							  </div>
+							  <button type="submit" class="btn btn-primary">Güncelle</button>
+							</form>
+					</div>
+				</div>
+			</th>
+						
+                        <th> <button  class="btn btn-danger" onclick="sil('<%- element._id %>')">Sil</button>
+                        </td>
+                        
+                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                       </th>
+									</tr>
+									<% 	});   %>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+					</div>
+				</div>
+
+			</div>
+
+				<div class="row">
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+	<script src="/admin/js/data-table.js"></script>
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/datatables.net/jquery.dataTables.js"></script>
+	<script src="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+	  <!-- End plugin js for this page -->
+  
+	  
+	  <!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

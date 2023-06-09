@@ -1,0 +1,160 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Site</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Site Bilgileri</li>
+					</ol>
+				</nav>
+
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Site İle İlgili Bilgileri Lütfen Buraya Giriniz</h6>
+								<form action="urunguncelle" method="POST" class="forms-sample" > 
+																	   
+								<div class="row">
+									<div class="col-md-12 grid-margin">
+										<div class="card">
+											<div class="card-body">
+												<p class="text-muted mb-3">Ürün Düzenle</p>
+
+												<div class="row mb-3"> 
+													<div class="col">
+													<label class="form-label">Ürün Başlık:</label>
+													<input class="form-control mb-4 mb-md-0" name="urunadi"  value="<%- urunler.urunadi   %>" />
+													</div></div>
+													<div class="row mb-3">
+														<div class="col">
+															<div class="row">
+																<div class="col-md-12 grid-margin stretch-card">
+																	<div class="card">
+																		<div class="card-body">
+																			<h4 class="card-title">Ürün Açıklaması</h4>
+																			<textarea class="form-control" name="urunaciklamasi" id="easyMdeExample" rows="10">
+																				<%- urunler.urunaciklamasi  %>
+																			</textarea>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															
+														</div></div>
+												<div class="row mb-3">
+								<div class="col">
+							
+							<label class="form-label">Ürün Kategorisi:</label>
+								<select name="kategori" id="kategori" class="js-example-basic-single form-select" data-width="100%">
+									<% kategoriler.forEach(element => { %>
+										<option value="<%- element._id %>"><%- element.kategoriadi %></option>
+									<% }); %>
+								</select>
+								</div>
+								<div class="col-md-6">
+								<label class="form-label">Alt Kategori</label>
+								<select name="alt_kategori" id="alt_kategori" class="js-example-basic-single form-select" data-width="100%" data-selected="<%= seciliAltKategoriId %>">
+									<% altkategoriler.forEach(element => { %>
+										<option value="<%- element._id %>"><%- element.altkategoriadi %></option>
+									<% }); %>
+								</select>
+								 
+							</div>
+								</div>
+								<div class="row mb-3">
+									<div class="col">
+									  <label class="form-label">Ürün Etiketi:</label>
+									  <input name="urunetiketi" id="tags" value="<%- urunler.urunetiketleri  %>" />
+									</div></div>
+									<div class="row mb-3">
+										<div class="col">
+										  <label class="form-label">Başlangıç Fiyatı:</label>
+										  <input class="form-control mb-4 mb-md-0" name="baslangicfiyati"  value="<%- urunler.baslangicfiyati  %>" />
+										</div>
+								</div>
+							  <div class="row mb-3">
+								<div class="col">
+								  <label class="form-label">İhale Başlangıç Tarihi</label>
+								  <input class="form-control" type="text" value="<%- moment(urunler.ihalebaslangictarihi).format('DD.MM.YYYY HH:MM:ss	') %>" disabled/>
+								</div>
+								<div class="col-md-6">
+								  <label class="form-label">İhale Bitiş Tarihi</label>
+								  <input class="form-control" type="text" value="<%- moment(urunler.ihalebitistarihi).format('DD.MM.YYYY HH:MM:ss') %>" disabled/>
+								</div>
+							  </div>
+							
+							  <input type="hidden" name="urunId" id="urunId" value="<%-  urunler.id  %>">
+							</div>
+							
+								<button type="submit" class="btn btn-primary">Güncelle</button>
+						</form>
+					</div>
+				</div>
+				
+			</th>
+									
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+					</div>
+				</div>
+
+			</div>
+
+				
+			
+				</body>
+                          <div class="row">
+                      
+				<div class="row">
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="/admin/vendors/feather-icons/feather.min.js"></script>
+	<script src="/admin/js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

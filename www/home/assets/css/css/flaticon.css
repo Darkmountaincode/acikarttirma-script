@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("../fonts/flaticon.ttf?c12e19bb042168223fd9ff3f3898110e") format("truetype"),
+url("../fonts/flaticon.woff?c12e19bb042168223fd9ff3f3898110e") format("woff"),
+url("../fonts/flaticon.woff2?c12e19bb042168223fd9ff3f3898110e") format("woff2"),
+url("../fonts/flaticon.eot?c12e19bb042168223fd9ff3f3898110e#iefix") format("embedded-opentype"),
+url("../fonts/flaticon.svg?c12e19bb042168223fd9ff3f3898110e#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-pin:before {
+    content: "\f101";
+}
+.flaticon-location:before {
+    content: "\f102";
+}
+.flaticon-pin-1:before {
+    content: "\f103";
+}
+.flaticon-tracking:before {
+    content: "\f104";
+}
+.flaticon-contact-mail:before {
+    content: "\f105";
+}
+.flaticon-contact:before {
+    content: "\f106";
+}
+.flaticon-chat:before {
+    content: "\f107";
+}
+.flaticon-phone-call:before {
+    content: "\f108";
+}
+.flaticon-phone:before {
+    content: "\f109";
+}
+.flaticon-laptop:before {
+    content: "\f10a";
+}
+.flaticon-camera:before {
+    content: "\f10b";
+}
+.flaticon-camera-1:before {
+    content: "\f10c";
+}
+.flaticon-printer:before {
+    content: "\f10d";
+}
+.flaticon-printer-1:before {
+    content: "\f10e";
+}
+.flaticon-watch:before {
+    content: "\f10f";
+}
+.flaticon-headphone:before {
+    content: "\f110";
+}
+.flaticon-speaker:before {
+    content: "\f111";
+}
+.flaticon-watch-tv:before {
+    content: "\f112";
+}
+.flaticon-washing-machine:before {
+    content: "\f113";
+}
+.flaticon-console:before {
+    content: "\f114";
+}
+.flaticon-delivery:before {
+    content: "\f115";
+}
+.flaticon-quality:before {
+    content: "\f116";
+}
+.flaticon-call-center:before {
+    content: "\f117";
+}
+.flaticon-money-back-guarantee:before {
+    content: "\f118";
+}

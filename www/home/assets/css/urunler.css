@@ -1,0 +1,137 @@
+
+  .countdown{
+    color:#ff8717;
+    margin-top: 6px;
+
+}
+.product-quantity {
+margin-top: 14px;
+margin-bottom: 6px;
+}
+.fiyat-sayac{
+  display: inline-block;
+justify-content: left;}
+  
+  .countdown-inner span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .countdown-inner span:before {
+    content: ":";
+    margin-right: 1px;
+  }
+  
+  .countdown-inner span[data-days="days"]:before {
+    content: "";
+    margin-right: 0;
+  }
+ 
+  .countdown-inner ul li {
+    text-align: center;
+    list-style: none;
+    font-size: 12px;
+    color: #ff8717;
+    display: inline-block;
+    padding: 2px 0px;
+    position: relative;
+    text-transform: uppercase;
+    
+  justify-content: center;
+  }
+  .countdown-inner ul li:nth-child(3) {
+    text-align: center;
+  }
+ 
+
+  
+.cart-btn {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .cart-btn:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      
+      
+      #ff8717,
+      #cc6900,
+      #7e3a00
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+  
+  @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  .cart-btn:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+.cart-btn2 {
+    padding: 0.6em 2em;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;;
+    margin-right: 15px;
+    width: 140px;
+    border: 2px solid #000;
+
+  }
+  
+  
+  

@@ -1,0 +1,107 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Site</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Site Bilgileri</li>
+					</ol>
+				</nav>
+
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Slider</h6>
+								<form method="POST" id="slideguncelle"  class="forms-sample" enctype="multipart/form-data"> 
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Slide Ürün Adı :</label>
+											<input class="form-control mb-4 mb-md-0" name="slideurunadi" id="slideurunadi" value="<%- slider.slideadi  %>"/>
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">Slide Alt Adı :</label>
+											<input class="form-control" name="slidealtadi" id="slidealtadi" value="<%-  slider.slidealtadi %>" />
+										</div>
+									</div>      
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Ürün Başlangıç Fiyatı :</label>
+											<input class="form-control mb-4 mb-md-0" name="slidebaslangicfiyati" id="slidebaslangicfiyati" value="<%- slider.slideurunbaslangicfiyati  %>"/>
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">İndirimli Fiyati :</label>
+											<input class="form-control" name="slideindirimlifiyati" id="slideindirimlifiyati" value="<%-  slider.slideindirimlifiyati  %>" />
+										</div>
+									</div>      
+								
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">İndirim Oranı % Kaç ? :</label>
+											<input class="form-control mb-4 mb-md-0" name="slideindirimorani" id="slideindirimorani" value="<%- slider.slideindirimorani %>"/>
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">Ürün Linki :</label>
+											<input class="form-control" name="slidelinki" id="slidelinki" value="<%- slider.slideurunlinki  %>" />
+										</div>
+									</div>      
+									
+                                	     </div>
+										 <div class="col">
+											<input type="file" id="slidegorsel" class="form-control mb-4 mb-md-0" name="slidegorsel" />
+											<center><img src="/slider/<%- slider.slidegorsel  %>" alt="" height="480px" width="680px"></center>
+											<input type="hidden" name="slideId"  id="slideId" value="<%- slider.id  %>">
+
+										</div>
+
+									<input type="hidden" name="site_id" value="">
+                                        <button type="submit" class="btn btn-primary">Güncelle</button>
+								</form>
+						</div>
+					</div>
+				</div>
+				</body>
+			<%- include('../partials/_footer');  %>
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="/admin/vendors/feather-icons/feather.min.js"></script>
+	<script src="/admin/js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

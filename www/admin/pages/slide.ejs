@@ -1,0 +1,99 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+			<link rel="stylesheet" href="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Üyeler</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Üye Bilgileri</li>
+					</ol>
+				</nav>
+			
+				<div class="row">
+					<div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Üye Listesi</h6>
+                <div class="table-responsive">
+                  <table id="dataTableExample" class="table">
+                    <thead>
+                      <tr>
+                        <th>Slide Görsel </th>
+                        <th>Slide Adı</th>
+                        <th>Ürün Linki</th>
+                        <th>Düzenle</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+										<% slider.forEach(slide => { %>
+                      <tr>
+                        <td><img src="/slider/<%- slide.slidegorsel   %>" alt="" height="320px" width="320px"></td>
+                        <td><%- slide.slideadi  %></td>
+                        <td><a href="<%- slide.slideurunlinki  %>"><%- slide.slideadi  %></a></td>
+ 						<th>
+						
+							<a href="/nadminpanel/slide_duzenle?id=<%- slide.id  %>" class="btn btn-primary" >Düzenle</a>
+										   
+									</tr>	
+								<% });  %>		
+                      </tr>
+                    </tbody>
+                  </table>
+             </div>
+			</div>
+
+				<div class="row">
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+	<script src="/admin/js/data-table.js"></script>
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/datatables.net/jquery.dataTables.js"></script>
+	<script src="/admin/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+	  <!-- End plugin js for this page -->
+  
+	  
+	  <!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

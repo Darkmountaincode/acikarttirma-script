@@ -1,0 +1,282 @@
+<%- include('../partials/_headers');  %>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <link rel="stylesheet" href="/home/css/main.css">
+            <div class="page-content pt-150 pb-150">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 m-auto">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="dashboard-menu">
+                                        <ul class="nav flex-column" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="dashboard-tab" data-bs-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false"><i class="fi-rs-settings-sliders mr-10"></i>Gösterge Panel</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fi-rs-shopping-bag mr-10"></i>Teklif Verdiğim İhaleler</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#track-orders" role="tab" aria-controls="track-orders" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i>Eklediğim İhaleler</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="track-orders-tab" data-bs-toggle="tab" href="#degerlendirmelerim" role="tab" aria-controls="degerlendirme" aria-selected="false"><i class="fi-rs-shopping-cart-check mr-10"></i>Değerlendirmelerim</a>
+                                            </li>
+                                          
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="address-tab" data-bs-toggle="tab" href="#address" role="tab" aria-controls="address" aria-selected="true"><i class="fi-rs-marker mr-10"></i>Adresim</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="account-detail-tab" data-bs-toggle="tab" href="#account-detail" role="tab" aria-controls="account-detail" aria-selected="true"><i class="fi-rs-user mr-10"></i>Hesap Detayım</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="cikis"><i class="fi-rs-sign-out mr-10"></i>Çıkış</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="tab-content account dashboard-content pl-50">
+                                        <div class="tab-pane fade active show" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="mb-0">Hoşgeldiniz <%- user.uyead  %> <%- user.uyesoyad %></h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p>
+                                                        Bu sayfada kazandığınız ihaleleri kontrol edebilir<a href="#">bilgilerinizi düzenleyebilir</a>,<br />
+                                                        son verdiğiniz teklifleri kontrol edebilir ve tüm işlemlerinizi yapabilirsiniz.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="mb-0">Teklif Verdiğim İhaleler</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Ürün Kodu</th>
+                                                                    <th>Ürün Adı</th>
+                                                                    <th>Ürün Görsel</th>
+                                                                    <th>Ürün Fiyatı</th>
+                                                                    <th>Linki</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%  urunler.forEach(urun => { %>
+                                                                <tr>
+                                                                    <td><%- urun.urunkodu  %></td>
+                                                                    <td><%- urun.urunadi  %></td>
+                                                                    <td><img src="/urungorselleri/<%- urun.urungorsel1  %>" alt="" width="60px" height="60px"></td>
+                                                                    <td><%- urun.baslangicfiyati  %> TL</td>
+                                                                    <td><a href="/urunler/<%- urun.ihaleurl  %>" class="btn-small d-block">Kontrol Et</a></td>
+                                                                </tr>
+                                                                <% }) %>
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="mb-0">Eklediğim İhaleler</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Ürün Kodu</th>
+                                                                    <th>Ürün Adı</th>
+                                                                    <th>Ürün Görsel</th>
+                                                                    <th>Ürün Fiyatı</th>
+                                                                    <th>Linki</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <%  ihalelerim.forEach(urun => { %>
+                                                                <tr>
+                                                                    <td><%- urun.urunkodu  %></td>
+                                                                    <td><%- urun.urunadi  %></td>
+                                                                    <td><img src="/urungorselleri/<%- urun.urungorsel1  %>" alt="" width="60px" height="60px"></td>
+                                                                    <td><%- urun.baslangicfiyati  %> TL</td>
+                                                                    <td><a href="/urunler/<%- urun.ihaleurl  %>" class="btn-small d-block">Kontrol Et</a></td>
+                                                                </tr>
+                                                                <% }) %>
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="degerlendirmelerim" role="tabpanel" aria-labelledby="degerlendirme-tab">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h3 class="mb-0">Değerlendirmelerim</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Yorumum</th>
+                                                                    <th>Değerlendirmem</th>
+                                                                    <th>Ürün Adı</th>
+                                                                    <th>Linki</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                
+                                                                <% yorumlar.forEach(element => { %>
+                                                                    <tr>
+                                                                        <td><%- element.uyeyorum %></td>
+                                                                        <td>
+                                                                                <div class="review-rate">
+                                                                                    <div class="str-info">
+                                                                                        <div class="review-star mr-15">
+                                                                            <% for (let i = 1; i <= 5; i++) { %>
+                                                                                <% if (i <= element.degerlendirme) { %>
+                                                                                    <a href="#"><i class="fas fa-star"></i></a>
+                                                                                <% } else { %>
+                                                                                    <a href="#"><i class="fas fa-star" style="color: black;"></i></a>
+                                                                                <% } %>
+                                                                            <% } %>
+                                                                                </div></div></div>
+                                                                        </td>
+                                                                        <td><%- element.urunId.urunadi %></td>
+                                                                        <td><a href="/urunler/<%- element.urunId.ihaleurl  %>" class="btn-small d-block">Kontrol Et</a></td>
+                                                                    </tr>
+                                                                <% }) %>
+                                                            
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="card mb-3 mb-lg-0">
+                                                        <div class="card-header">
+                                                            <h3 class="mb-0">Fatura Adresi</h3>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <address>
+                                                            <%- user.uyeadres  %>
+                                                            </address>
+                                                            <p><%= user.uyeil  %> <%= user.uyeilce  %></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h5 class="mb-0">Gönderi Adresi</h5>
+                                                        </div>
+                                                        <div class="card-body">
+                                                            <address>
+                                                                 <%= user.uyeadres %> 
+                                                            </address>
+                                                            <p><%= user.uyeil  %> <%= user.uyeilce  %></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="account-detail" role="tabpanel" aria-labelledby="account-detail-tab">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5>Hesap Detayları</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <form id="hesapdetay" method="post" name="enq">
+                                                        <div class="row">
+                                                            <div class="form-group col-md-6">
+                                                                <label>Adınız <span class="required">*</span></label>
+                                                                <input required="" class="form-control" name="uyead" id="uyead" type="text" value="<%= user.uyead  %>" />
+                                                            </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label>Soyadınız <span class="required">*</span></label>
+                                                                <input required="" class="form-control" name="uyesoyad" id="uyesoyad" value="<%= user.uyesoyad %>"/>
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Telefon Numarası<span class="required">*</span></label>
+                                                                 <input required="" class="form-control" name="uyetel" id="uyetel" type="phone" value="<%= user.uyetel  %>" />
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Email Adresi<span class="required">*</span></label>
+                                                                <input required="" class="form-control" name="uyemail" id="uyemail" type="email"  value="<%= user.uyemail  %>"/>
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Şifreniz <span class="required">*</span></label>
+                                                                <input required="" class="form-control" name="eskisifre" id="eskisifre" type="password" />
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Yeni Şifre <span class="required">*</span></label>
+                                                                <input  class="form-control" name="yenisifre" id="yenisifre" type="password" />
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Yeni Şifre Tekrar <span class="required">*</span></label>
+                                                                <input  class="form-control" name="yenisifretekrar" id="yenisifretekrar" type="password" />
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Adresiniz <span class="required">*</span></label>
+                                                                <input required="" class="form-control" name="adres" id="adres" type="text" value="<%= user.uyeadres  %>" required="" />
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label for="">Şehir Seçiniz</label>
+                                                                <select id="Iller" name="Iller" required>
+                                                                    <% if (user.uyeil) { %>
+                                                                      <option value="<%= user.uyeil %>" selected><%= user.uyeil %></option>
+                                                                    <% } else { %>
+                                                                      <option value="0" selected>Lütfen Bir İl Seçiniz</option>
+                                                                    <% } %>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label for="">İlçe Seçiniz</label>
+                                                                    
+                                                                <select id="Ilceler" name="Ilceler" disabled="disabled" required>
+                                                                    <% if(user.uyeilce) {%>
+                                                                        <option value="<%= user.uyeilce %>" selected><%= user.uyeilce %></option>
+                                                                        <% }else{ %>
+                                                                        <option value="0">Lütfen Önce bir İlçe seçiniz</option>
+                                                                    <% } %>
+                                                                </select>
+                                                            </div>
+                                                            <script>
+                                                                
+                                                            </script>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Posta Kodu <span class="required">*</span></label>
+                                                                <input required="" class="form-control" name="postakodu" id="postakodu" type="text" value="<%= user.postakodu  %>"/>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <button type="submit" class="btn btn-fill-out submit font-weight-bold" name="submit" value="Submit">Güncelle</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+    </main>
+
+    
+    <%- include('../partials/_footers');  %>

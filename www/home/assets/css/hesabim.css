@@ -1,0 +1,68 @@
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .containerhesabim {
+    background-color: rgb(241, 241, 241);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    margin: 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .containerhesabim2 {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    margin: 20px;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .menu-item,
+  .hesabim-orta {
+    margin: 10px 0;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .menu-item:hover {
+    color: #FF8717;
+  }
+  
+  .hesabim-box {
+    margin: 20px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    width: 100%;
+    max-width: 300px;
+    background-color: #ffffff;
+  }
+  
+  .transactions {
+    margin-top: 20px;
+  }
+  
+  .transaction {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .transaction-info {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .transaction-amount {
+    font-weight: bold;
+  }
+  
+  .bakiye {
+    color: #85bb65;
+  }
+  

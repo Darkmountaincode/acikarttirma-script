@@ -1,0 +1,140 @@
+<%- include('../partials/_headers');  %>
+<link rel="stylesheet" href="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.css">
+
+   
+
+    <main>
+    
+
+        <!-- coupon-area-start -->
+        <section class="coupon-area pt-120 pb-30">
+   
+            <div class="container">
+            
+        </div>
+        </section>
+        <!-- coupon-area-end -->
+
+        <!-- checkout-area-start -->
+        <section class="checkout-area pb-85">
+     
+            <div class="container">
+                <form id="urunekle" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="checkbox-form">
+
+                                <h3>Ürün Ekle</h3>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="urunAdi">Ürün Adı:</label>
+                                            <input type="text" id="urunadi" name="urunadi"  placeholder="Ürün Adını Buraya Giriniz"><br>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="urunAciklamasi">Ürün Açıklaması:</label>
+                                        </head>
+                                        <body>
+                                            <textarea  name="urunaciklamasi"  id="editor"  >
+                                              
+                                            </textarea>
+                                            
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="Ürün Kategorisi">Ürün Kategorisi:</label>
+                                            <select class="nice-select1" name="urunkategori" id="urunkategori">
+                                                <% kategoriler.forEach(element => { %>
+                                                <option value="<%- element._id  %>"><%- element.kategoriadi  %></option>
+                                                <% });  %>
+                                            </select>
+                                           </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                  
+                                    
+                                        <div>
+                                            <input type="file" id="file-input" name="urungorsel" multiple="multiple" onchange="handleFileSelect(event)" class="file-input" required>
+                                            <label for="file-input" class="uploaded-image">
+                                              <div class="drag-drop-text">Görselleri sürükleyin ve bırakın</div>
+                                            </label>
+                                          </div>
+                                          <ul class="image-list" id="image-list"></ul>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="urunFiyati">Ürün Anahtar Kelimeleri:</label>
+                                            <input type="text" id="tags" name="urunanahtarkelimesi" step="0.01" ><br>
+                                        </div>
+                                    </div>
+                                   
+                             
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="urunFiyati">Ürün Fiyatı:</label>
+                                            <input type="number" id="urunfiyati" name="urunfiyati" step="0.01"  placeholder="0.00 TL"><br>
+                                            <label for="hemenalfiyati">Hemen Al Fiyatı:</label> 
+                                            <input type="number" id="hemenalfiyati" name="hemenalfiyati" step="0.01"  placeholder="0.00 TL"><br>
+                                        </div>
+                                    </div>
+                                    
+
+
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="ihaleBaslangicFiyati">İhale Başlangıç Fiyatı:</label>
+                                            <input type="number" id="ihaleBaslangicFiyati" name="ihaleBaslangicFiyati" step="0.01"  placeholder="0.00 TL"><br>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                 
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label for="ihaleBaslangicTarihi">İhale Başlangıç Tarihi:</label>
+                                            <input type="datetime-local" id="ihaleBaslangicTarihi" name="ihaleBaslangicTarihi" ><br>
+                                          </div>
+                                        </div>
+                                     
+                                        <div class="col-md-12">
+                                          <div class="checkout-form-list">
+                                            <label for="ihaleBitisTarihi">İhale Bitiş Tarihi:</label>
+                                            <input type="datetime-local" id="ihaleBitisTarihi" name="ihaleBitisTarihi" ><br>
+                                        </div>  
+                                    </div>
+                                    <input type="hidden" name="kullaniciId" id="kullaniciId" value="<%- user.id  %>">
+                                    <div class="col-md-12">
+                                        <div class="order-button-payment mt-20">
+                                        <label for="sozlesme-onayi" >Sözleşmeyi <a href="">okudum ve kabul ediyorum</a></label>
+                                        <input type="checkbox" id="sozlesme-onayi" name="sozlesme-onayi" required >
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="order-button-payment mt-20">
+                                        <button type="submit" class="tp-btn-h1">Kaydet</button>
+                                      
+                                   
+                                       
+                                        </div>
+                                    <hr>
+                                
+                                </div>
+                                  
+                                  
+                                </div>
+                               
+                            </div></div>
+                      
+                   
+        </section>
+        <!-- checkout-area-end -->
+
+        <!-- cta-area-start -->
+        
+ 
+   <%- include('../partials/_footers'); %>

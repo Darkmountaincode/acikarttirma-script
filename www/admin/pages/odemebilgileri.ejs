@@ -1,0 +1,471 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Site</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Ödeme Ayarları</li>
+					</ol>
+				</nav> 
+				
+
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Ödeme Ayarlarını Buradan Yapabilirsiniz</h6>
+								<div class="example">
+									<div class="row">
+									  <div class="col-12 col-md-6 col-xl-4">
+										<div class="card">
+										  <div class="card-header">
+										<center>PayTR</center>
+										  </div>
+										  <div class="card-body">
+  											<div class="example">
+								  <!-- Button trigger modal -->
+								  <center><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+									PayTR Ayarları
+								  </button>
+								  <hr>
+								  <h3>Kredi/Banka Kartı | 3D Güvenli Ödeme</h3></center>
+								  <!-- Modal -->
+								  <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="exampleModalCenterTitle">PayTR Pos</h5>
+										  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+										</div>
+										<div class="modal-body">
+																	   
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<p class="text-muted mb-3">PayTR Pos</p>
+								<form id="odemedurum" method="POST" class="forms-sample">
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Ödeme Metodu:</label>
+											<input class="form-control mb-4 mb-md-0" name="odemetipi" id="odemetipi" value="PayTR havale" disabled/>
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">Komisyon Oranı</label>
+											<input class="form-control" name="komisyon" id="komisyon" value="" placeholder="Komisyon Oranını Buraya Yazınız.." />
+										</div>
+									</div>                                           
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Minimum Ödeme Tutarı:</label>
+											<input class="form-control" name="minodeme" id="minodeme" value="" placeholder="Minimum Ödeme Tutarı.." />
+										</div>
+										<div class="col-md-6">
+											<label class="form-label">Maksimum Ödeme Tutarı</label>
+											<input class="form-control" name="maxodeme" id="maxodeme" value="" placeholder="Maksimum Ödeme Tutarını.." />
+										</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col">
+											<label class="form-label">Market ID</label>
+											<input class="form-control" name="marketId" id="marketId" value="" placeholder="Id Numarasını Buraya Giriniz.." />
+										</div>
+									
+										<div class="col-md-6">
+											<label class="form-label">Market Key</label>
+											<input class="form-control" name="marketkey" id="marketkey" value="" placeholder="Gizli Anahtarı Buraya Giriniz.." />
+										</div>
+									</div>
+										<div class="col-md-6">
+											<label class="form-label">Market Salt</label>
+											<input class="form-control" name="marketsalt" id="marketsalt" value="" placeholder="Lütfen Buraya Giriniz.." />
+										</div>
+									</div>     
+                                 
+                                        <button type="submit" class="btn btn-primary">Güncelle</button>
+								</form>
+						</div>
+					</div>
+				</div>
+										
+				</div></div></div></div></div></div></div>
+								 
+									  </div>
+									  <div class="col-12 col-md-6 col-xl-4">
+										<div class="card">
+										  <div class="card-header">
+											<center>Banka Hesabınız</center>
+
+										  </div>
+										  <div class="card-body">
+  											<div class="example">
+								  <!-- Button trigger modal -->
+								  <center><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#havale">
+									Banka Hesap Bilgileriniz
+								  </button>
+								  <hr>
+								  <h3>Havale / Eft Sistemi</h3></center>
+								  <!-- Modal -->
+								  <div class="modal fade" id="havale" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="exampleModalCenterTitle">Havale / Eft Sistemi</h5>
+										  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+										</div>
+										<div class="modal-body">
+											<p class="text-muted mb-3">Banka Hesap Bilgileri</p>
+											<form id="havalekaydet" method="POST" class="forms-sample">
+												<div class="row mb-3">
+													<div class="col">
+														<label class="form-label">Banka Adı:</label>
+														<input class="form-control mb-4 mb-md-0" name="bankaadi" id="bankaadi" value="" placeholder="Banka Adı" />
+													</div>
+													<div class="col-md-6">
+														<label class="form-label">Hesap Ad Soyad</label>
+														<input class="form-control" name="bankahesapadsoyad" id="bankahesapadsoyad" value="" placeholder="Banka Hesap Ad Soyad.." />
+													</div>
+												</div>                                           
+												<div class="row mb-3">
+													<div class="col">
+														<label class="form-label">Iban No:</label>
+														<input class="form-control" name="ibanno" id="ibanno" value="" placeholder="Banka Iban No.." />
+													</div>
+													<div class="col-md-6">
+														<label class="form-label">Şube kodu</label>
+														<input class="form-control" name="subekodu" id="subekodu" value="" placeholder="Banka Şube Kodu.." />
+													</div>
+													</div>
+													<div class="row mb-3">
+														<div class="col">
+														<label class="form-label">Hesap Numarası</label>
+														<input class="form-control" name="hesapno" id="hesapno" value="" placeholder="Banka Hesap Numarası.." />
+													</div>
+												
+													<div class="col-md-6">
+														<label class="form-label">Açıklama</label>
+														<input class="form-control" name="bankaaciklama" id="bankaaciklama" value="" placeholder="Banka İle İlgili Açıklama.." />
+													</div>
+												</div>
+													<div class="col-md-6">
+														<label class="form-label">Sonuçlanma Süresi</label>
+														<input class="form-control" name="bankaislemsonucu" id="bankaislemsonucu" value="" placeholder="Sonuçlanma Süresi.." />
+													</div>
+												</div>     
+											 
+													<button type="submit" class="btn btn-primary">Ekle</button>
+											</form>
+									
+
+									  </div>
+									</div></div></div></div></div></div>
+									  <div class="col-12 col-md-6 col-xl-4">
+										<div class="card">
+										  <div class="card-header">
+											<center>PayTR Havale</center>
+
+										  </div>
+										  <div class="card-body">
+  											<div class="example">
+								  <!-- Button trigger modal -->
+								  <center><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#paytrhavale">
+									PayTR Ayarları
+								  </button>
+								  <hr>
+								  <h3>Kredi/Banka Kartı | 3D Güvenli Ödeme</h3></center>
+								  <!-- Modal -->
+								  <div class="modal fade" id="paytrhavale" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+										  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+										</div>
+										<div class="modal-body">
+											<p class="text-muted mb-3">PayTR Havale</p>
+											<form action="paytrkaydet" method="POST" class="forms-sample">
+												<div class="row mb-3">
+													<div class="col">
+														<label class="form-label">Ödeme Metodu:</label>
+														<input class="form-control mb-4 mb-md-0" name="odemetipi" value="Paytr" disabled/>
+													</div>
+													<div class="col-md-6">
+														<label class="form-label">Komisyon Oranı</label>
+														<input class="form-control" name="komisyon" value="" placeholder="Komisyon Oranını Buraya Yazınız.." />
+													</div>
+												</div>                                           
+												<div class="row mb-3">
+													<div class="col">
+														<label class="form-label">Minimum Ödeme Tutarı:</label>
+														<input class="form-control" name="minodeme" value="" placeholder="Minimum Ödeme Tutarı.." />
+													</div>
+													<div class="col-md-6">
+														<label class="form-label">Maksimum Ödeme Tutarı</label>
+														<input class="form-control" name="maxodeme" value="" placeholder="Maksimum Ödeme Tutarını.." />
+													</div>
+													</div>
+													<div class="row mb-3">
+														<div class="col">
+														<label class="form-label">Market ID</label>
+														<input class="form-control" name="marketId" value="" placeholder="Id Numarasını Buraya Giriniz.." />
+													</div>
+												
+													<div class="col-md-6">
+														<label class="form-label">Market Key</label>
+														<input class="form-control" name="marketkey" value="" placeholder="Gizli Anahtarı Buraya Giriniz.." />
+													</div>
+												</div>
+													<div class="col-md-6">
+														<label class="form-label">Market Salt</label>
+														<input class="form-control" name="marketsalt" value="" placeholder="Lütfen Buraya Giriniz.." />
+													</div>
+												</div>     
+											 
+													<button type="submit" class="btn btn-primary">Güncelle</button>
+											</form>
+									
+
+									  </div>
+									</div></div></div></div></div></div>
+									<div class="col-12 col-md-6 col-xl-4">
+										<div class="card">
+										  <div class="card-header">
+											<center>Shopier</center>
+										  </div>
+										  <div class="card-body">
+  											<div class="example">
+								  <!-- Button trigger modal -->
+								  <center><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shopier">
+									Shopier Ayarları
+								  </button>
+								  <hr>
+								  <h3>Kredi/Banka Kartı | 3D Güvenli Ödeme</h3></center>
+								  <!-- Modal -->
+								  <div class="modal fade" id="shopier" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+									  <div class="modal-content">
+										<div class="modal-header">
+										  <h5 class="modal-title" id="exampleModalCenterTitle">Shopier</h5>
+										  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="row">
+												<div class="col-md-12 grid-margin">
+													<div class="card">
+														<div class="card-body">
+															<p class="text-muted mb-3">Shopier</p>
+															<form action="shopierkaydet" method="POST" class="forms-sample">
+																<div class="row mb-3">
+																	<div class="col">
+																		<label class="form-label">Ödeme Metodu:</label>
+																		<input class="form-control mb-4 mb-md-0" name="odemetipi" value="shopier" disabled/>
+																	</div>
+																	<div class="col-md-6">
+																		<label class="form-label">Komisyon Oranı</label>
+																		<input class="form-control" name="komisyon" value="" placeholder="Komisyon Oranını Buraya Yazınız.." />
+																	</div>
+																</div>                                           
+																<div class="row mb-3">
+																	<div class="col">
+																		<label class="form-label">Minimum Ödeme Tutarı:</label>
+																		<input class="form-control" name="minodeme" value="" placeholder="Minimum Ödeme Tutarı.." />
+																	</div>
+																	<div class="col-md-6">
+																		<label class="form-label">Maksimum Ödeme Tutarı</label>
+																		<input class="form-control" name="maxodeme" value="" placeholder="Maksimum Ödeme Tutarını.." />
+																	</div>
+																	</div>
+																	<div class="row mb-3">
+																		<div class="col">
+																		<label class="form-label">Api User</label>
+																		<input class="form-control" name="apiuser" value="" placeholder="Api user giriniz.." />
+																	</div>
+																
+																	<div class="col-md-6">
+																		<label class="form-label">Market Kodu</label>
+																		<input class="form-control" name="marketkodu" value="" placeholder="Market Kodunu Giriniz.." />
+																	</div>
+																</div>
+																	<div class="row mb-3">
+																	<div class="col">
+																		<label class="form-label">Api Key</label>
+																		<input class="form-control" name="apikey" value="" placeholder="Api Key Giriniz.." />
+																	</div>
+																	<div class="col-md-6">
+																		<label class="form-label">Api Hash</label>
+																		<input class="form-control" name="apihash" value="" placeholder="Api Hash Giriniz.." />
+																	</div>
+																</div>     
+															</div>
+																	<button type="submit" class="btn btn-primary">Güncelle</button>
+															</form>
+													</div>
+												</div>
+											</div>
+										</div>
+										 
+									  </div>
+									</div></div></div></div></div></div>
+											  <hr>
+								
+							</div></div></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">Banka Bilgileri</h6>
+                <div class="table-responsive">
+                  <table id="dataTableExample" class="table">
+                    <thead>
+                      <tr>
+                        <th>Banka Adı </th>
+                        <th>İban No</th>
+                        <th>Hesap Adı Soyad</th>
+                        <th>Düzenle</th>
+						<th>Sil</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+							<% havale.forEach(element => { %>
+								
+							
+                      <tr>
+                        <td><%- element.bankaadi  %></td>
+                        <td><%- element.ibanno  %></td>
+                        <td><%- element.bankahesapadsoyad  %></td>
+ 						<td>	
+							<div class="col-12 col-md-6 col-xl-4">
+							<a href="" class="btn btn-primary" data-bs-toggle="modal"  data-bs-target="#havale<%- element.id %>" >Düzenle</a>
+						
+						  <div class="modal fade" id="havale<%- element.id %>" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+							  <div class="modal-content">
+								<div class="modal-header">
+								  <h5 class="modal-title" id="exampleModalCenterTitle">Havale / Eft Sistemi</h5>
+								  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+								</div>
+								<div class="modal-body">
+									<p class="text-muted mb-3">Banka Hesap Bilgileri</p>
+									<form id="havalekaydet" method="POST" class="forms-sample">
+										<div class="row mb-3">
+											<div class="col">
+												<label class="form-label">Banka Adı:</label>
+												<input class="form-control mb-4 mb-md-0" name="bankaadi" id="bankaadi" value="<%- element.bankaadi  %>" placeholder="Banka Adı" />
+											</div>
+											<div class="col-md-6">
+												<label class="form-label">Hesap Ad Soyad</label>
+												<input class="form-control" name="bankahesapadsoyad" id="bankahesapadsoyad" value="<%- element.bankahesapadsoyad  %>" placeholder="Banka Hesap Ad Soyad.." />
+											</div>
+										</div>                                           
+										<div class="row mb-3">
+											<div class="col">
+												<label class="form-label">Iban No:</label>
+												<input class="form-control" name="ibanno" id="ibanno" value="<%- element.ibanno  %>" placeholder="Banka Iban No.." />
+											</div>
+											<div class="col-md-6">
+												<label class="form-label">Şube kodu</label>
+												<input class="form-control" name="subekodu" id="subekodu" value="<%- element.subekodu  %>" placeholder="Banka Şube Kodu.." />
+											</div>
+											</div>
+											<div class="row mb-3">
+												<div class="col">
+												<label class="form-label">Hesap Numarası</label>
+												<input class="form-control" name="hesapno" id="hesapno" value="<%- element.hesapno  %>" placeholder="Banka Hesap Numarası.." />
+											</div>
+										
+											<div class="col-md-6">
+												<label class="form-label">Açıklama</label>
+												<input class="form-control" name="bankaaciklama" id="bankaaciklama" value="<%- element.bankaaciklamasi  %>" placeholder="Banka İle İlgili Açıklama.." />
+											</div>
+										</div>
+											<div class="col-md-6">
+												<label class="form-label">Sonuçlanma Süresi</label>
+												<input class="form-control" name="bankaislemsonucu" id="bankaislemsonucu" value="<%- element.bankaislemsonucu  %>" placeholder="Sonuçlanma Süresi.." />
+											</div>
+										</div>     
+									 
+											<button type="submit" class="btn btn-primary">Ekle</button>
+									</form>
+							
+
+							  </div>
+							</div></div></div></div></div></div>
+										 </td>	
+						<td><a href="demo" class="btn btn-danger">Sil</a></td>
+                      </tr>
+					<% }); %>			
+                    </tbody>
+                  </table>
+             </div>
+			</div>
+
+
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+
+	
+	<script>
+		var varyingModal = document.getElementById('varyingModal')
+		varyingModal.addEventListener('show.bs.modal', function (event) {
+		  // Button that triggered the modal
+		  var button = event.relatedTarget
+		  // Extract info from data-bs-* attributes
+		  var recipient = button.getAttribute('data-bs-whatever')
+		  // If necessary, you could initiate an AJAX request here
+		  // and then do the updating in a callback.
+		  //
+		  // Update the modal's content.
+		  var modalTitle = varyingModal.querySelector('.modal-title')
+		  var modalBodyInput = varyingModal.querySelector('.modal-body input')
+	
+		  modalTitle.textContent = 'New message to ' + recipient
+		  modalBodyInput.value = recipient
+		})
+	  </script>
+	
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="/admin/vendors/feather-icons/feather.min.js"></script>
+	<script src="/admin/js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>

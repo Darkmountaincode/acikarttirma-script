@@ -1,0 +1,141 @@
+<%- include('../partials/_header');  %>
+
+		<!-- partial:../../partials/_sidebar.html -->
+	<%- include('../partials/_sidebar')  %>
+		<!-- partial -->
+	
+		<div class="page-wrapper">
+			<%- include('../partials/_navbar')  %>
+			<!-- partial -->
+
+			<div class="page-content">
+
+				<nav class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">Site</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Site Bilgileri</li>
+					</ol>
+				</nav>
+
+				<div class="row">
+					<div class="col-md-12 grid-margin">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Site İle İlgili Bilgileri Lütfen Buraya Giriniz</h6>
+								<form method="POST" id="ozellikKaydet"  class="forms-sample" > 
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Özellik 1:</label>
+											<input class="form-control mb-4 mb-md-0" name="ozellik1" id="ozellik1" value="<%- ozellikler.ozellik1 %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Özellik 2:</label>
+											<input class="form-control mb-4 mb-md-0" name="ozellik2" id="ozellik2" value="<%- ozellikler.ozellik2  %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Özellik 3:</label>
+											<input class="form-control mb-4 mb-md-0" name="ozellik3" id="ozellik3" value="<%- ozellikler.ozellik3  %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Özellik 4:</label>
+											<input class="form-control mb-4 mb-md-0" name="ozellik4" id="ozellik4" value="<%- ozellikler.ozellik4 %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Özellik 5:</label>
+											<input class="form-control mb-4 mb-md-0" name="ozellik5" id="ozellik5" value="<%-  ozellikler.ozellik5 %>"/>
+										</div>
+									</div>           
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Alt Özellik 1:</label>
+											<input class="form-control mb-4 mb-md-0" name="altozellik1" id="altozellik1" value="<%- ozellikler.altozellik1 %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Alt Özellik 2:</label>
+											<input class="form-control mb-4 mb-md-0" name="altozellik2" id="altozellik2" value="<%- ozellikler.altozellik2  %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Alt Özellik 3:</label>
+											<input class="form-control mb-4 mb-md-0" name="altozellik3" id="altozellik3" value="<%- ozellikler.altozellik3  %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Alt Özellik 4:</label>
+											<input class="form-control mb-4 mb-md-0" name="altozellik4" id="altozellik4" value="<%- ozellikler.altozellik4 %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Alt Özellik 5:</label>
+											<input class="form-control mb-4 mb-md-0" name="altozellik5" id="altozellik5" value="<%-  ozellikler.altozellik5 %>"/>
+										</div>
+									</div>           
+									<div class="row mb-3">
+										<div class="col">
+											<label class="form-label">Mağaza Bilgileri:</label>
+											<input class="form-control mb-4 mb-md-0" name="magazabilgileri" id="magazabilgileri" value="<%- ozellikler.magazabilgileri %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Copyright:</label>
+											<input class="form-control mb-4 mb-md-0" name="copyright" id="copyright" value="<%- ozellikler.copyright  %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Telefon Bilgileri:</label>
+											<input class="form-control mb-4 mb-md-0" name="telefonbilgileri" id="telefonbilgileri" value="<%- ozellikler.telefonbilgileri  %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Adres Bilgileri:</label>
+											<input class="form-control mb-4 mb-md-0" name="adresbilgileri" id="adresbilgileri" value="<%- ozellikler.adresbilgileri %>"/>
+										</div>
+										<div class="col">
+											<label class="form-label">Misyon:</label>
+											<input class="form-control mb-4 mb-md-0" name="misyonbilgileri" id="misyonbilgileri" value="<%- ozellikler.misyonbilgileri %>"/>
+										</div>
+									</div>           
+								</div>
+									<input type="hidden" name="site_id" value="">
+                                        <button type="submit" class="btn btn-primary">Güncelle</button>
+								</form>
+						</div>
+					</div>
+				</div>
+				
+			
+				</body>
+                          
+			<%- include('../partials/_footer');  %>
+		</div>
+	</div>
+ 
+
+	<!-- Plugin js for this page -->
+	<script src="/admin/vendors/jquery-validation/jquery.validate.min.js"></script>
+	<script src="/admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+	<script src="/admin/vendors/inputmask/jquery.inputmask.min.js"></script>
+	<script src="/admin/vendors/select2/select2.min.js"></script>
+	<script src="/admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+	<script src="/admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
+	<script src="/admin/vendors/dropzone/dropzone.min.js"></script>
+	<script src="/admin/vendors/dropify/dist/dropify.min.js"></script>
+	<script src="/admin/vendors/pickr/pickr.min.js"></script>
+	<script src="/admin/vendors/moment/moment.min.js"></script>
+	<script src="/admin/vendors/flatpickr/flatpickr.min.js"></script>
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="/admin/vendors/feather-icons/feather.min.js"></script>
+	<script src="/admin/js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<script src="/admin/js/form-validation.js"></script>
+	<script src="/admin/js/bootstrap-maxlength.js"></script>
+	<script src="/admin/js/inputmask.js"></script>
+	<script src="/admin/js/select2.js"></script>
+	<script src="/admin/js/typeahead.js"></script>
+	<script src="/admin/js/tags-input.js"></script>
+	<script src="/admin/js/dropzone.js"></script>
+	<script src="/admin/js/dropify.js"></script>
+	<script src="/admin/js/pickr.js"></script>
+	<script src="/admin/js/flatpickr.js"></script>
+	<!-- End custom js for this page -->
+
+</body>
+</html>
