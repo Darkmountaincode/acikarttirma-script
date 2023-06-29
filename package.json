@@ -29,6 +29,6 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "swal": "^0.1.0",
-    "sweetalert2": "^11.7.5"
+    "sweetalert2": "^11.7.11"
   }
 }
